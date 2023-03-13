@@ -134,17 +134,31 @@ html{
     z-index: 23;
     transition: .5s;
 }
-@keyframes infoTransition{
+@keyframes infoTransitionLeft{
     0%{
-        transform: translateY(0px);
+        transform: translateX(0px);
         opacity: 1;
     }
     50%{
-        transform: translateY(-30px);
+        transform: translateX(-40px);
         opacity: 0;
     }
     100%{
-        transform: translateY(0px);
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes infoTransitionRight{
+    0%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+    50%{
+        transform: translateX(40px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
         opacity: 1;
     }
 }

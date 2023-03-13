@@ -58,10 +58,19 @@ function carInfoChange(){
         "to surpass" or "go beyond".`;
     }
 }
-function addLandingAnimation(){
-    landingText.style.animation = "infoTransition 1s linear";
+
+
+function addAnimationLeft(){
+    landingText.style.animation = "infoTransitionLeft 1s linear";
     setTimeout(() => { landingText.style.animation = ""; }, 1000);
 }
+function addAnimationRight(){
+    landingText.style.animation = "infoTransitionRight 1s linear";
+    setTimeout(() => { landingText.style.animation = ""; }, 1000);
+}
+
+
+
 function infoPointTransition(){
     if (landingBackdroundCounter === 1) {
         ring.style.transform = "translate(-10px, -50%)";
@@ -92,7 +101,7 @@ function landingBgChagePlus(){
         }
         landingBackgroundChanger();
         setTimeout( carInfoChange, 500 );
-        addLandingAnimation();
+        addAnimationRight();
         infoPointTransition();
     }
     setTimeout(() => {
@@ -108,7 +117,7 @@ function landingBgChageMinus(){
         }
         landingBackgroundChanger();
         setTimeout( carInfoChange, 500 );
-        addLandingAnimation();
+        addAnimationLeft();
         infoPointTransition();
     }
 
@@ -123,7 +132,7 @@ function autoChangeBg(){
     }
     landingBackgroundChanger();
     setTimeout( carInfoChange, 500);
-    addLandingAnimation();
+    addAnimationRight();
     infoPointTransition();
 }
 var bgChangeTimer = setInterval( autoChangeBg, 10000);
