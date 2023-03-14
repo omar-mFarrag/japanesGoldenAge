@@ -141,3 +141,22 @@ function bgChangerReset(){
     bgChangeTimer = setInterval( autoChangeBg, 10000);
 }
 // End of landing script for desktop
+
+// for change wallpaper with swipe right and left ♥
+var startingX , startingY , movingX, movingY;
+function touchstart(evt){
+    startingX = evt.touches[0].clientX ;
+    startingY = evt.touches[0].clientY ;
+}
+function touchmove(evt){
+    movingX = evt.touches[0].clientX ;
+    movingY = evt.touches[0].clientY ;
+}
+function touchend(){
+    if(startingX+100 < movingX){
+        landingBgChagePlus();
+    }else if(startingX-100 > movingX){
+        landingBgChageMinus();
+    }
+}
+// End of landing script   <3 

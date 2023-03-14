@@ -234,7 +234,7 @@ html{
     }
     .infoPoints .fa-chevron-right,
     .infoPoints .fa-chevron-left{
-        display: block;
+        display: none;
     }
     .infoPoints .fa-chevron-right{
         padding-left: 30px;
