@@ -137,10 +137,10 @@ function autoChangeBg(){
     addAnimationRight();
     infoPointTransition();
 }
-var bgChangeTimer = setInterval( autoChangeBg, 5000);
+var bgChangeTimer = setInterval( autoChangeBg, 10000);
 function bgChangerReset(){
     clearInterval(bgChangeTimer);
-    bgChangeTimer = setInterval( autoChangeBg, 5000);
+    bgChangeTimer = setInterval( autoChangeBg, 10000);
 }
 // End of landing script for desktop
 
