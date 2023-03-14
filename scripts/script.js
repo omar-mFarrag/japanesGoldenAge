@@ -103,6 +103,7 @@ function landingBgChagePlus(){
         setTimeout( carInfoChange, 500 );
         addAnimationRight();
         infoPointTransition();
+        bgChangerReset();
     }
     setTimeout(() => {
         canChange = true;
@@ -119,6 +120,7 @@ function landingBgChageMinus(){
         setTimeout( carInfoChange, 500 );
         addAnimationLeft();
         infoPointTransition();
+        bgChangerReset();
     }
 
     setTimeout(() => {
@@ -135,10 +137,10 @@ function autoChangeBg(){
     addAnimationRight();
     infoPointTransition();
 }
-var bgChangeTimer = setInterval( autoChangeBg, 10000);
+var bgChangeTimer = setInterval( autoChangeBg, 5000);
 function bgChangerReset(){
     clearInterval(bgChangeTimer);
-    bgChangeTimer = setInterval( autoChangeBg, 10000);
+    bgChangeTimer = setInterval( autoChangeBg, 5000);
 }
 // End of landing script for desktop
 
