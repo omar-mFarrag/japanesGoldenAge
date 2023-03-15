@@ -139,8 +139,12 @@ html{
         transform: translateX(0px);
         opacity: 1;
     }
-    50%{
-        transform: translateX(-40px);
+    40%{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    60%{
+        transform: translateX(100px);
         opacity: 0;
     }
     100%{
@@ -153,12 +157,34 @@ html{
         transform: translateX(0px);
         opacity: 1;
     }
-    50%{
-        transform: translateX(40px);
+    40%{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    60%{
+        transform: translateX(-100px);
         opacity: 0;
     }
     100%{
         transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes infoTransitionTop{
+    0%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    40%{
+        transform: translateY(-60px);
+        opacity: 0;
+    }
+    60%{
+        transform: translateY(60px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
         opacity: 1;
     }
 }

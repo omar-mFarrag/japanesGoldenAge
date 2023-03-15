@@ -6,7 +6,7 @@ var landingText = document.getElementById("landing-text");
 var ring = document.getElementById("ring");
 var canChange = true;
 
-// Start of landing script for desktop
+// To Chage Content for landing page
 function carInfoChange(){
     if(landingBackdroundCounter === 1){
         if(landingBackdround.offsetWidth <= 600){
@@ -60,6 +60,8 @@ function carInfoChange(){
 }
 
 
+
+// To Add Animations
 function addAnimationLeft(){
     landingText.style.animation = "infoTransitionLeft 1s linear";
     setTimeout(() => { landingText.style.animation = ""; }, 1000);
@@ -68,9 +70,15 @@ function addAnimationRight(){
     landingText.style.animation = "infoTransitionRight 1s linear";
     setTimeout(() => { landingText.style.animation = ""; }, 1000);
 }
+function addAnimationTop(){
+    landingText.style.animation = "infoTransitionTop 1s linear";
+    setTimeout(() => { landingText.style.animation = ""; }, 1000);
+}
 
 
 
+
+// To Move Point like page numper
 function infoPointTransition(){
     if (landingBackdroundCounter === 1) {
         ring.style.transform = "translate(-10px, -50%)";
@@ -83,6 +91,10 @@ function infoPointTransition(){
     }
 }
 
+
+
+
+// Change background in landing page with width of screen PHONE or DESKTOP
 function landingBackgroundChanger(){
     if(landingBackdround.offsetWidth <= 600){
         landingBackdround.style.backgroundImage = `url(./images/landingBackgrounds/phone/background${landingBackdroundCounter}.jpg)`;
@@ -91,6 +103,8 @@ function landingBackgroundChanger(){
     }
 }
 
+
+// Add Instractions whene click on next arrow
 function landingBgChagePlus(){
     
     if( canChange === true ){
@@ -101,7 +115,7 @@ function landingBgChagePlus(){
         }
         landingBackgroundChanger();
         setTimeout( carInfoChange, 500 );
-        addAnimationRight();
+        addAnimationTop();
         infoPointTransition();
         bgChangerReset();
     }
@@ -109,6 +123,11 @@ function landingBgChagePlus(){
         canChange = true;
     }, 1100);
 }
+
+
+
+
+// Add Instraction whnene cklick on prev arrow
 function landingBgChageMinus(){
     if( canChange === true ){
         canChange = false;
@@ -118,7 +137,7 @@ function landingBgChageMinus(){
         }
         landingBackgroundChanger();
         setTimeout( carInfoChange, 500 );
-        addAnimationLeft();
+        addAnimationTop();
         infoPointTransition();
         bgChangerReset();
     }
@@ -127,6 +146,8 @@ function landingBgChageMinus(){
         canChange = true;
     }, 1100);
 }
+
+// To make instractions in LandingBgChagneMinus function automaticly
 function autoChangeBg(){
     landingBackdroundCounter++;
     if(landingBackdroundCounter > 4){
@@ -134,9 +155,14 @@ function autoChangeBg(){
     }
     landingBackgroundChanger();
     setTimeout( carInfoChange, 500);
-    addAnimationRight();
+    if (landingBackdround.offsetWidth <= 600) {
+        addAnimationLeft();
+    } else {
+        addAnimationTop();
+    }
     infoPointTransition();
 }
+// To reset time for auto change function
 var bgChangeTimer = setInterval( autoChangeBg, 10000);
 function bgChangerReset(){
     clearInterval(bgChangeTimer);
@@ -144,7 +170,7 @@ function bgChangerReset(){
 }
 // End of landing script for desktop
 
-// for change wallpaper with swipe right and left ♥
+// for change wallpaper with swipe right and left
 var startingX , startingY , movingX, movingY;
 function touchstart(evt){
     startingX = evt.touches[0].clientX ;
@@ -156,9 +182,37 @@ function touchmove(evt){
 }
 function touchend(){
     if(startingX+100 < movingX){
-        landingBgChagePlus();
+        if( canChange === true ){
+            canChange = false;
+            landingBackdroundCounter--;
+            if(landingBackdroundCounter < 1){
+                landingBackdroundCounter = 4;
+            }
+            landingBackgroundChanger();
+            setTimeout( carInfoChange, 500 );
+            addAnimationRight();
+            infoPointTransition();
+            bgChangerReset();
+        }
+        setTimeout(() => {
+            canChange = true;
+        }, 1100);
     }else if(startingX-100 > movingX){
-        landingBgChageMinus();
+        if( canChange === true ){
+            canChange = false;
+            landingBackdroundCounter++;
+            if(landingBackdroundCounter > 4){
+                landingBackdroundCounter = 1;
+            }
+            landingBackgroundChanger();
+            setTimeout( carInfoChange, 500 );
+            addAnimationLeft();
+            infoPointTransition();
+            bgChangerReset();
+        }
+        setTimeout(() => {
+            canChange = true;
+        }, 1100);
     }
 }
-// End of landing script   <3 
+// End of landing script   <3
